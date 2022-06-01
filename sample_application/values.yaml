@@ -1,5 +1,5 @@
 name: cv-demo
-namespace: ${infra.kubernetes.namespace}
+namespace: <+stage.spec.infrastructure.infrastructureDefinition.spec.namespace>
 
 image: ${artifact.metadata.image}
 
