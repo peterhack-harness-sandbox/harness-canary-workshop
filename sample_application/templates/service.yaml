@@ -10,7 +10,7 @@ spec:
   ports:
   - name: http-canary
     port: 8080
-    targetPort: 80
+    targetPort: 8080
     protocol: TCP
   selector:
     app: cv-demo
@@ -28,7 +28,7 @@ spec:
   ports:
   - name: http-stable
     port: 8080
-    targetPort: 80
+    targetPort: 8080
     protocol: TCP
   selector:
     app: cv-demo
