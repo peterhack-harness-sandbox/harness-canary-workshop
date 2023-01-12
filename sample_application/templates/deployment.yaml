@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: cv-demo
-        image: harness/cv-demo
+        image: harness/cv-demo:stable
         imagePullPolicy: Always
         resources:
           requests:
