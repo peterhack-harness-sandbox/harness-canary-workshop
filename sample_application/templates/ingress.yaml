@@ -14,6 +14,7 @@ spec:
   - http:
       paths:
       - path: /canary/(.*)
+        pathType: Prefix
         backend:
           service:
             name: http-canary
@@ -23,7 +24,7 @@ spec:
 #
 # Ingress targeting stable only, at /api/*
 #
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: cv-demo-stable
@@ -36,6 +37,7 @@ spec:
   - http:
       paths:
       - path: /api/(.*)
+        pathType: Prefix
         backend:
           service:
             name: http-stable
