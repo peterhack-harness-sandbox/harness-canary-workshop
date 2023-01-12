@@ -4,7 +4,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{.Values.name}}-canary
+  name: cv-demo-canary
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -15,7 +15,7 @@ spec:
       paths:
       - path: /canary/(.*)
         backend:
-          serviceName: {{.Values.name}}-canary
+          serviceName: cv-demo-canary
           servicePort: http-canary
 ---
 #
@@ -24,7 +24,7 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: {{.Values.name}}-stable
+  name: cv-demo-stable
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -35,5 +35,5 @@ spec:
       paths:
       - path: /api/(.*)
         backend:
-          serviceName: {{.Values.name}}-stable
+          serviceName: cv-demo-stable
           servicePort: http-stable

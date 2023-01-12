@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-canary
+  name: cv-demo-canary
 spec:
   type: ClusterIP
   ports:
@@ -13,7 +13,7 @@ spec:
     targetPort: http
     protocol: TCP
   selector:
-    app: {{.Values.name}}
+    app: cv-demo
     harness.io/track: canary
 ---
 #
@@ -22,7 +22,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{.Values.name}}-stable
+  name: cv-demo-stable
 spec:
   type: ClusterIP
   ports:
@@ -31,5 +31,5 @@ spec:
     targetPort: http
     protocol: TCP
   selector:
-    app: {{.Values.name}}
+    app: cv-demo
     harness.io/track: stable
